@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<!--
+<html>
+    <head>
+        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
+    </head>
+    <body>
+        <h1>Reservation calendar</h1>
+        <div class="grid-container">
+            <div class="grid-item">Sun</div>
+            <div class="grid-item">Mon</div>
+            <div class="grid-item">Tue</div>
+            <div class="grid-item">Wed</div>
+            <div class="grid-item">Thu</div>
+            <div class="grid-item">Fri</div>
+            <div class="grid-item">Sat</div>
+        </div>
+    </body>
+</html>
+-->
+<head>
+    <style>
+    table, th, td {
+        border: 1px solid black;
+      }
+    </style>
+</head>
+<table>
+    <tr>
+        <th>Monday</th>
+        <th>Tuesday</th>
+        <th>Wednesday</th>
+        <th>Thursday</th>
+        <th>Friday</th>
+        <th>Saturday</th>
+        <th>Sunday</th>
+    </tr>
+    {% for row in range(0,5)%}
+        <tr>
+        {% for col in range(0,7)%}
+            <th><button>{{dates[row*7 + col].day}}</button></th>
+        {% endfor %}
+        </tr>ß
+    {% endfor %}
+</table>
