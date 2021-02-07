@@ -9,7 +9,7 @@ from forum import create_forum, get_reservedList
 # print(str)
 
 
-app=Flask(__name__)
+app=Flask(__name__,  template_folder='Templates')
 
 myCalendar = calendar.TextCalendar(calendar.SUNDAY)
 yy = datetime.datetime.now().year
