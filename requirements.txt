@@ -7,6 +7,7 @@ isort==5.7.0
 itsdangerous==0.24
 Jinja2==2.9.6
 lazy-object-proxy==1.4.3
+setuptools==45.2.0
 MarkupSafe==1.0
 mccabe==0.6.1
 pylint==2.6.0
