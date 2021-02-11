@@ -23,3 +23,10 @@ def get_reservedList(date):
     reserved_list=cur.fetchall()
     return reserved_list
 
+def get_allreserved(date):
+    con=sql.connect(path.join(ROOT,'database.db'))
+    cur=con.cursor()
+    cur.execute('select * from forum')
+    all_reservedlist=cur.fetchall()
+    return all_reservedlist
+

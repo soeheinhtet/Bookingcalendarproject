@@ -1,23 +1,4 @@
 <!DOCTYPE html>
-<!--
-<html>
-    <head>
-        <link rel="stylesheet" type="text/css" href="{{ url_for('static', filename='style.css') }}">
-    </head>
-    <body>
-        <h1>Reservation calendar</h1>
-        <div class="grid-container">
-            <div class="grid-item">Sun</div>
-            <div class="grid-item">Mon</div>
-            <div class="grid-item">Tue</div>
-            <div class="grid-item">Wed</div>
-            <div class="grid-item">Thu</div>
-            <div class="grid-item">Fri</div>
-            <div class="grid-item">Sat</div>
-        </div>
-    </body>
-</html>
--->
 <html>
 <head>
     <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css" integrity="sha384-Gn5384xqQ1aoWXA+058RXPxPg6fy4IWvTNh0E263XmFcJlSAwiGgFAW/dAiS6JXm" crossorigin="anonymous">
@@ -25,31 +6,31 @@
 </head>
 
 <nav class="navbar navbar-dark bg-dark">
-    <form action="{{ url_for('previous') }}">
+    <form action="{{ url_for('previous', mm=mm, yy=yy) }}">
         <button class="btn btn-outline-light"> < </button>
     </form>
     <div class="text-white">{{yy}} {{months[mm]}}</div>
-    <form action="{{ url_for('next') }}" method='POST'>
+    <form action="{{ url_for('next', mm=mm, yy=yy)}}" method='POST'>
         <button class="btn btn-outline-light"> > </button>
     </form>
 </nav>
 <table class="table  table-striped table-dark table-bordered">
-        <tr>
-            <th>Sunday</td>
-            <th>Monday</th>
-            <th>Tuesday</th>
-            <th>Wednesday</th>
-            <th>Thursday</th>
-            <th>Friday</th>
-            <th>Saturday</th>
+        <tr class="text-center"> 
+            <th >SUN</td>
+            <th>MON</th>
+            <th>TUE</th>
+            <th>WED</th>
+            <th>THU</th>
+            <th>FRI</th>
+            <th>SAT<S/th>
         </tr>
     {% for row in range(0,5)%}
         <tr>
         {% for col in range(0,7)%}
             <th>
-                <form class="form-inline" action="{{ url_for('gotoforum') }}" method='POST'>    
+                <form class="d-flex justify-content-center" action="{{ url_for('gotoforum') }}" method='POST'>    
                     <input hidden type='text' name='dd' value={{ dates[row*7 + col]}}>
-                    <button type="submit" class="btn btn-outline-light"> 
+                    <button type="submit" style="background-color: transparent" class="btn btn-outline-light"> 
                         {{dates[row*7 + col].day}}
                     </button>
                 </form>
